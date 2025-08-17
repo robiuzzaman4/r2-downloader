@@ -422,7 +422,7 @@ export default function ResumableDownloader() {
       </div>
 
       <div className="space-y-4">
-        {downloads.map((download) => (
+        {downloads?.map((download) => (
           <div
             key={download?.id}
             className="w-full h-fit bg-secondary p-1 rounded-xl border"
@@ -512,18 +512,18 @@ export default function ResumableDownloader() {
           </div>
         ))}
 
-        {downloads.length === 0 && (
-          <Card>
-            <CardContent className="pt-6">
-              <div className="text-center py-8">
-                <DownloadIcon className="w-12 h-12 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-semibold mb-2">No downloads</h3>
-                <p className="text-muted-foreground">
-                  Add a URL above to start downloading
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+        {downloads?.length === 0 && (
+          <div className="w-full h-fit bg-secondary p-1 rounded-xl border">
+            <div className="bg-background p-4 rounded-lg space-y-6 shadow">
+              <DownloadIcon className="size-10 mx-auto text-muted-foreground mb-4" />
+              <h3 className="text-lg text-center font-semibold mb-2">
+                No downloads
+              </h3>
+              <p className="text-muted-foreground text-center">
+                Add a URL above to start downloading
+              </p>
+            </div>
+          </div>
         )}
       </div>
     </div>
